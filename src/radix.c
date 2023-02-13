@@ -6,7 +6,7 @@
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 17:56:47 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/09 17:56:47 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/13 20:50:19 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ void	radix_sort(t_list **stack_a, t_list **stack_b)
 		}
 		while (ft_lstsize(*stack_b) != 0)
 			push(stack_a, stack_b, 'a');
-		i++;
+		bits_counter++;
 	}
 }

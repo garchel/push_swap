@@ -6,7 +6,7 @@
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 19:23:46 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/09 19:23:46 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/13 21:07:41 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
-
-# define MAX_INT 2147483647
-# define MIN_INT -2147483648
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -44,13 +42,10 @@ void	radix_sort(t_list **stack_a, t_list **stack_b);
 void	simple_sort(t_list **stack_a, t_list **stack_b);
 
 //Utils functions
-static int	is_in_argv(int num, char **argv, int i);
-static int	ft_isnum(char *num);
 void	verify_input_args(int argc, char **argv);
 void	index_nodes(t_list **stack);
-static	t_list	*find_next_lower(t_list **stack);
 void	free_stack(t_list **stack);
-void 	make_node_top(t_list **stack, int node_distance);
+void 	make_node_top(t_list **stack_a, t_list **stack_b, int node_distance);
 int		get_distance(t_list **stack, int index);
 int		verify_sorted(t_list **stack);
 void	ft_free(char **str);

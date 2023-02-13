@@ -6,7 +6,7 @@
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 15:04:16 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/09 15:04:16 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/13 21:07:59 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,13 @@ int	get_distance(t_list **stack, int index)
 	return (distance);
 }
 
-void make_node_top(t_list **stack, int node_distance)
+void make_node_top(t_list **stack_a, t_list **stack_b, int node_distance)
 {
 	t_list	*current_node;
 	int		list_size;
 	int		distance_to_end;
 
-	current_node = *stack;
+	current_node = *stack_a;
 	list_size = ft_lstsize(current_node);
 	distance_to_end = list_size - node_distance;
 	if (node_distance == 0)
@@ -74,12 +74,12 @@ void make_node_top(t_list **stack, int node_distance)
 	if (node_distance <= (list_size / 2))
 	{
 		while (node_distance-- > 0)
-			ra(stack);
+			rotate(stack_a, stack_b, 'a');
 	}
 	else
 	{
 		while (distance_to_end-- > 0)
-			rra(stack);
+			reverse_rotate(stack_a, stack_b, 'a');
 	}
 }
 

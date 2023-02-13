@@ -6,11 +6,11 @@
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 16:08:08 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/09 16:08:08 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/13 20:41:56 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 int	ft_lstsize(t_list *head)
 {

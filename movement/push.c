@@ -6,7 +6,7 @@
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 16:54:37 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/09 16:54:37 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/13 20:49:33 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	do_push(t_list **destStack, t_list **srcStack)
 	next = current_node->next;
 	if (!current_node)
 		ft_error("Error during push");
-	ft_lstadd_front(destStack, ft_lstnew(current_node->value, current_node->index));
+	ft_lstadd_front(destStack, ft_lstnew(current_node->value));
 	*srcStack = next;
 	return (0);
 }

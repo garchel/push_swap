@@ -6,7 +6,7 @@
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 18:06:40 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/09 18:06:40 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/13 20:53:10 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	get_min(t_list **stack, int val)
 	return (min);
 }
 
-static void	sort_3(t_list **stack_a)
+static void	sort_3(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*head;
 	int		min;
@@ -83,7 +83,7 @@ static void	sort_4(t_list **stack_a, t_list **stack_b)
 	if (verify_sorted(stack_a))
 		return ;
 	push(stack_a, stack_b, 'b');
-	sort_3(stack_a);
+	sort_3(stack_a, stack_b);
 	push(stack_a, stack_b, 'a');
 }
 
@@ -124,7 +124,7 @@ void	simple_sort(t_list **stack_a, t_list **stack_b)
 	if (size == 2)
 		swap(stack_a, stack_b, 'a');
 	else if (size == 3)
-		sort_3(stack_a);
+		sort_3(stack_a, stack_b);
 	else if (size == 4)
 		sort_4(stack_a, stack_b);
 	else if (size == 5)
