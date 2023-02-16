@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printlist.c                                     :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 19:24:52 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/16 21:43:09 by pauvicto         ###   ########.fr       */
+/*   Created: 2022/04/15 03:57:08 by pauvicto          #+#    #+#             */
+/*   Updated: 2022/05/29 01:58:31 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	printList(t_list *head)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	t_list	*node;
+	void	*ptr;
+	size_t	size_to_alloc;
 
-	node = head;
-	while (node != NULL)
+	size_to_alloc = nmemb * size;
+	if (nmemb == 0 || size == 0)
+		return (malloc(0));
+	if (size_to_alloc / nmemb == size)
 	{
-		ft_putnbr_fd(node->value, 1);
-		ft_putendl_fd("", 1);
-		node = node->next;
+		ptr = malloc(size_to_alloc);
+		if (ptr != NULL)
+		{
+			ft_bzero(ptr, size_to_alloc);
+			return (ptr);
+		}
 	}
+	return (0);
 }

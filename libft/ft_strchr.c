@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printlist.c                                     :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 19:24:52 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/16 21:43:09 by pauvicto         ###   ########.fr       */
+/*   Created: 2022/04/12 19:54:41 by pauvicto          #+#    #+#             */
+/*   Updated: 2022/06/10 21:44:47 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	printList(t_list *head)
+char	*ft_strchr(const char *s, int c)
 {
-	t_list	*node;
+	unsigned int	i;
 
-	node = head;
-	while (node != NULL)
+	i = 0;
+	if (!s)
+		return (0);
+	if (c == '\0')
+		return ((char *)&s[ft_strlen(s)]);
+	while (s[i] != '\0')
 	{
-		ft_putnbr_fd(node->value, 1);
-		ft_putendl_fd("", 1);
-		node = node->next;
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i++;
 	}
+	return (NULL);
 }

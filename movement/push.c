@@ -6,25 +6,36 @@
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 16:54:37 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/13 20:49:33 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/16 21:39:12 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	do_push(t_list **destStack, t_list **srcStack)
+int	do_push(t_list **dest_stack, t_list **source_stack)
 {
-	t_list	*current_node;
-	t_list	*next;
+	t_list	*new_element;
+	t_list	*dest_head;
+	t_list	*source_head;
 
-	if (ft_lstsize(*srcStack) < 1)
+	if (ft_lstsize(*source_stack) == 0)
 		return (-1);
-	current_node = *srcStack;
-	next = current_node->next;
-	if (!current_node)
-		ft_error("Error during push");
-	ft_lstadd_front(destStack, ft_lstnew(current_node->value));
-	*srcStack = next;
+	dest_head = *dest_stack;
+	source_head = *source_stack;
+	new_element = source_head;
+	source_head = source_head->next;
+	*source_stack = source_head;
+	if (!dest_head)
+	{
+		dest_head = new_element;
+		dest_head->next = NULL;
+		*dest_stack = dest_head;
+	}
+	else
+	{
+		new_element->next = dest_head;
+		*dest_stack = new_element;
+	}
 	return (0);
 }
 

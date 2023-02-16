@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printlist.c                                     :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 19:24:52 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/16 21:43:09 by pauvicto         ###   ########.fr       */
+/*   Created: 2022/04/04 22:27:25 by coder             #+#    #+#             */
+/*   Updated: 2022/05/27 20:27:47 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	printList(t_list *head)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	t_list	*node;
+	size_t	c;
+	int		i;
 
-	node = head;
-	while (node != NULL)
+	i = 0;
+	c = 0;
+	if ((char *)src < (char *)dest && (char *)src + n > (char *)dest)
 	{
-		ft_putnbr_fd(node->value, 1);
-		ft_putendl_fd("", 1);
-		node = node->next;
+		while (c < n--)
+			*((char *)dest + (int)n) = *((char *)src + (int)n);
+		return (dest);
+	}
+	else
+	{
+		while (c < n)
+		{
+			*((char *) dest + i) = *(char *)(src + i);
+			i++;
+			c++;
+		}
+		return (dest);
 	}
 }

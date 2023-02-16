@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printlist.c                                     :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 19:24:52 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/16 21:43:09 by pauvicto         ###   ########.fr       */
+/*   Created: 2022/04/04 22:15:12 by coder             #+#    #+#             */
+/*   Updated: 2022/04/14 02:07:29 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	printList(t_list *head)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	t_list	*node;
+	size_t	c;
+	int		i;
 
-	node = head;
-	while (node != NULL)
+	i = 0;
+	c = 0;
+	while (c < n)
 	{
-		ft_putnbr_fd(node->value, 1);
-		ft_putendl_fd("", 1);
-		node = node->next;
+		*((char *)dest + i) = *(char *)(src + i);
+		i++;
+		c++;
 	}
+	return (dest);
 }

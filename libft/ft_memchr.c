@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printlist.c                                     :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 19:24:52 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/16 21:43:09 by pauvicto         ###   ########.fr       */
+/*   Created: 2022/04/13 01:33:29 by pauvicto          #+#    #+#             */
+/*   Updated: 2022/05/27 20:13:28 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	printList(t_list *head)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	t_list	*node;
+	size_t	i;
 
-	node = head;
-	while (node != NULL)
+	i = 0;
+	if (s == NULL)
+		return (NULL);
+	while (i < n)
 	{
-		ft_putnbr_fd(node->value, 1);
-		ft_putendl_fd("", 1);
-		node = node->next;
+		if (*(char *)(s + i) == (char)c)
+			return ((void *)(s + i));
+		i++;
 	}
+	return (NULL);
 }

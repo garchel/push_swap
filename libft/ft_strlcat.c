@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printlist.c                                     :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 19:24:52 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/16 21:43:09 by pauvicto         ###   ########.fr       */
+/*   Created: 2022/04/21 02:40:44 by pauvicto          #+#    #+#             */
+/*   Updated: 2022/04/22 22:20:54 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	printList(t_list *head)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	t_list	*node;
+	size_t	len_dest;
+	size_t	len_src;
+	size_t	i;
 
-	node = head;
-	while (node != NULL)
+	len_src = ft_strlen(src);
+	len_dest = ft_strlen(dst);
+	if (size <= 0)
+		return (len_src);
+	i = 0;
+	while (src[i] && (len_dest + i) < (size - 1))
 	{
-		ft_putnbr_fd(node->value, 1);
-		ft_putendl_fd("", 1);
-		node = node->next;
+		dst[len_dest + i] = src[i];
+		i++;
 	}
+	if (size < len_dest)
+		return (size + len_src);
+	dst[i + len_dest] = '\0';
+	return (len_dest + len_src);
 }

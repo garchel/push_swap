@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printlist.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 19:24:52 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/16 21:43:09 by pauvicto         ###   ########.fr       */
+/*   Created: 2022/04/28 23:41:39 by pauvicto          #+#    #+#             */
+/*   Updated: 2022/05/29 01:57:00 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	printList(t_list *head)
+static int	abs_value(int n)
 {
-	t_list	*node;
+	if (n < 0)
+		return (n * (-1));
+	else
+		return (n);
+}
 
-	node = head;
-	while (node != NULL)
+void	ft_putnbr_fd(int n, int fd)
+{
+	unsigned int	num;
+
+	num = abs_value(n);
+	if (n < 0)
+		write(fd, "-", 1);
+	if (num >= 10)
 	{
-		ft_putnbr_fd(node->value, 1);
-		ft_putendl_fd("", 1);
-		node = node->next;
+		ft_putnbr_fd(num / 10, fd);
+		ft_putnbr_fd(num % 10, fd);
 	}
+	else
+		ft_putchar_fd(num + 48, fd);
 }
