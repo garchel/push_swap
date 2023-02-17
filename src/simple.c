@@ -6,7 +6,7 @@
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 18:06:40 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/17 05:04:11 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/17 05:06:51 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 static void	do_sort(t_list **stack_a, t_list **stack_b, int min, int next_min)
 {
-	t_list	*head;
+	t_list	*node;
 
-	head = *stack_a;
-	if (head->index == min && head->next->index != next_min)
+	node = *stack_a;
+	if (node->index == min && node->next->index != next_min)
 	{
 		swap(stack_a, stack_b, 'a');
 		rotate(stack_a, stack_b, 'a');
 	}
-	else if (head->index == next_min)
+	else if (node->index == next_min)
 	{
-		if (head->next->index == min)
+		if (node->next->index == min)
 			swap(stack_a, stack_b, 'a');
 		else
 			reverse_rotate(stack_a, stack_b, 'a');
 	}
 	else
 	{
-		if (head->next->index == min)
+		if (node->next->index == min)
 			rotate(stack_a, stack_b, 'a');
 		else
 		{
@@ -43,11 +43,11 @@ static void	do_sort(t_list **stack_a, t_list **stack_b, int min, int next_min)
 
 static void	sort_3(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*head;
+	t_list	*node;
 	int		min;
 	int		next_min;
 
-	head = *stack_a;
+	node = *stack_a;
 	min = get_min(stack_a, -1);
 	next_min = get_min(stack_a, min);
 	if (verify_sorted(stack_a))

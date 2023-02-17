@@ -6,7 +6,7 @@
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 17:33:52 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/17 05:04:17 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/17 05:07:15 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 static int	get_min(t_list **stack, int val)
 {
-	t_list	*head;
+	t_list	*node;
 	int		min;
 
-	head = *stack;
-	min = head->index;
-	while (head->next)
+	node = *stack;
+	min = node->index;
+	while (node->next)
 	{
-		head = head->next;
-		if ((head->index < min) && head->index != val)
-			min = head->index;
+		node = node->next;
+		if ((node->index < min) && node->index != val)
+			min = node->index;
 	}
 	return (min);
 }
