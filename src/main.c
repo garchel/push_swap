@@ -6,11 +6,27 @@
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 17:33:52 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/09 17:33:52 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/17 05:04:17 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	get_min(t_list **stack, int val)
+{
+	t_list	*head;
+	int		min;
+
+	head = *stack;
+	min = head->index;
+	while (head->next)
+	{
+		head = head->next;
+		if ((head->index < min) && head->index != val)
+			min = head->index;
+	}
+	return (min);
+}
 
 static void	gen_stack(t_list **stack, int argc, char **argv)
 {

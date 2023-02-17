@@ -6,7 +6,7 @@
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 04:04:48 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/16 21:15:54 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/17 04:19:39 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -295,7 +295,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
  * @param str const char
  * @return int 
  */
-long		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 
 /**
  * @brief The atoi() function converts the initial portion of

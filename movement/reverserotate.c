@@ -6,16 +6,16 @@
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 18:19:20 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/09 18:19:20 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/17 04:21:13 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int do_reverse_rotate(t_list **stack)
+int	do_reverse_rotate(t_list **stack)
 {
-	t_list *current_node;
-	t_list *last_node;
+	t_list	*current_node;
+	t_list	*last_node;
 
 	if (ft_lstsize(*stack) < 2)
 		return (-1);
@@ -25,8 +25,8 @@ int do_reverse_rotate(t_list **stack)
 	{
 		if (current_node->next->next == NULL)
 		{
-			 current_node->next = NULL;
-			 break ;
+			current_node->next = NULL;
+			break ;
 		}
 		current_node = current_node->next;
 	}
@@ -35,7 +35,7 @@ int do_reverse_rotate(t_list **stack)
 	return (0);
 }
 
-int reverse_rotate(t_list **stack_a, t_list **stack_b, char flag)
+int	reverse_rotate(t_list **stack_a, t_list **stack_b, char flag)
 {
 	if (flag == 'a')
 	{
@@ -51,7 +51,8 @@ int reverse_rotate(t_list **stack_a, t_list **stack_b, char flag)
 	}
 	else if (flag == 'r')
 	{
-		if (do_reverse_rotate(stack_a) == -1 || do_reverse_rotate(stack_b) == -1)
+		if (do_reverse_rotate(stack_a) == -1
+			|| do_reverse_rotate(stack_b) == -1)
 			return (-1);
 		ft_putendl_fd("rrr", 1);
 	}

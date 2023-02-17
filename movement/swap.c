@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movement.c                                         :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 16:47:47 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/09 16:47:47 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/17 04:20:15 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	do_swap(t_list **stack)
 	return (0);
 }
 
-int swap(t_list **stack_a, t_list **stack_b, char flag)
+int	swap(t_list **stack_a, t_list **stack_b, char flag)
 {
 	if (flag == 'a')
 	{

@@ -6,7 +6,7 @@
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 16:30:26 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/09 16:30:26 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/17 04:16:38 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	verify_input_args(int argc, char **argv)
 	long	current_value;
 	char	**args;
 
-	i = 0; 
+	i = 0;
 	if (argc == 2)
 		args = ft_split(argv[1], ' ');
 	else

@@ -6,7 +6,7 @@
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 16:54:37 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/16 21:39:12 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/17 04:20:27 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	do_push(t_list **dest_stack, t_list **source_stack)
 	return (0);
 }
 
-int push(t_list **stack_a, t_list **stack_b, char flag)
+int	push(t_list **stack_a, t_list **stack_b, char flag)
 {
 	if (flag == 'a')
 	{

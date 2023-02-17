@@ -6,7 +6,7 @@
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 15:04:16 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/16 21:47:13 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/17 04:16:01 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	ft_free(char **str)
 		free(str[i--]);
 }
 
-int verify_sorted(t_list **stack)
+int	verify_sorted(t_list **stack)
 {
-	t_list *current_node;
+	t_list	*current_node;
 
 	current_node = *stack;
 	while (current_node && current_node->next)

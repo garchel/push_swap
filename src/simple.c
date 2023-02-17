@@ -6,44 +6,21 @@
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 18:06:40 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/13 20:53:10 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/17 05:04:11 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	get_min(t_list **stack, int val)
+static void	do_sort(t_list **stack_a, t_list **stack_b, int min, int next_min)
 {
 	t_list	*head;
-	int		min;
-
-	head = *stack;
-	min = head->index;
-	while (head->next)
-	{
-		head = head->next;
-		if ((head->index < min) && head->index != val)
-			min = head->index;
-	}
-	return (min);
-}
-
-static void	sort_3(t_list **stack_a, t_list **stack_b)
-{
-	t_list	*head;
-	int		min;
-	int		next_min;
 
 	head = *stack_a;
-	min = get_min(stack_a, -1);
-	next_min = get_min(stack_a, min);
-	if (verify_sorted(stack_a))
-		return ;
 	if (head->index == min && head->next->index != next_min)
 	{
-		rotate(stack_a, stack_b, 'a');
 		swap(stack_a, stack_b, 'a');
-		reverse_rotate(stack_a, stack_b, 'a');
+		rotate(stack_a, stack_b, 'a');
 	}
 	else if (head->index == next_min)
 	{
@@ -62,6 +39,20 @@ static void	sort_3(t_list **stack_a, t_list **stack_b)
 			reverse_rotate(stack_a, stack_b, 'a');
 		}
 	}
+}
+
+static void	sort_3(t_list **stack_a, t_list **stack_b)
+{
+	t_list	*head;
+	int		min;
+	int		next_min;
+
+	head = *stack_a;
+	min = get_min(stack_a, -1);
+	next_min = get_min(stack_a, min);
+	if (verify_sorted(stack_a))
+		return ;
+	do_sort(stack_a, stack_b, min, next_min);
 }
 
 static void	sort_4(t_list **stack_a, t_list **stack_b)
