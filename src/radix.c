@@ -6,7 +6,7 @@
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 17:56:47 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/13 20:50:19 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/17 06:18:07 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,22 @@ void	radix_sort(t_list **stack_a, t_list **stack_b)
 			push(stack_a, stack_b, 'a');
 		bits_counter++;
 	}
+}
+
+void	simple_sort(t_list **stack_a, t_list **stack_b)
+{
+	int	size;
+
+	if (verify_sorted(stack_a) || ft_lstsize(*stack_a) == 0
+		|| ft_lstsize(*stack_a) == 1)
+		return ;
+	size = ft_lstsize(*stack_a);
+	if (size == 2)
+		swap(stack_a, stack_b, 'a');
+	else if (size == 3)
+		sort_3(stack_a, stack_b);
+	else if (size == 4)
+		sort_4(stack_a, stack_b);
+	else if (size == 5)
+		sort_5(stack_a, stack_b);
 }

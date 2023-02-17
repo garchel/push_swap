@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simple.c                                           :+:      :+:    :+:   */
+/*   simple_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 18:06:40 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/17 05:06:51 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/17 06:20:31 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	do_sort(t_list **stack_a, t_list **stack_b, int min, int next_min)
+static int	get_min(t_list **stack, int val)
+{
+	t_list	*node;
+	int		min;
+
+	node = *stack;
+	min = node->index;
+	while (node->next)
+	{
+		node = node->next;
+		if ((node->index < min) && node->index != val)
+			min = node->index;
+	}
+	return (min);
+}
+
+void	do_sort(t_list **stack_a, t_list **stack_b, int min, int next_min)
 {
 	t_list	*node;
 
@@ -41,7 +57,7 @@ static void	do_sort(t_list **stack_a, t_list **stack_b, int min, int next_min)
 	}
 }
 
-static void	sort_3(t_list **stack_a, t_list **stack_b)
+void	sort_3(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*node;
 	int		min;
@@ -55,7 +71,7 @@ static void	sort_3(t_list **stack_a, t_list **stack_b)
 	do_sort(stack_a, stack_b, min, next_min);
 }
 
-static void	sort_4(t_list **stack_a, t_list **stack_b)
+void	sort_4(t_list **stack_a, t_list **stack_b)
 {
 	int	distance;
 
@@ -102,22 +118,4 @@ void	sort_5(t_list **stack_a, t_list **stack_b)
 	push(stack_a, stack_b, 'b');
 	sort_4(stack_a, stack_b);
 	push(stack_a, stack_b, 'a');
-}
-
-void	simple_sort(t_list **stack_a, t_list **stack_b)
-{
-	int	size;
-
-	if (verify_sorted(stack_a) || ft_lstsize(*stack_a) == 0
-		|| ft_lstsize(*stack_a) == 1)
-		return ;
-	size = ft_lstsize(*stack_a);
-	if (size == 2)
-		swap(stack_a, stack_b, 'a');
-	else if (size == 3)
-		sort_3(stack_a, stack_b);
-	else if (size == 4)
-		sort_4(stack_a, stack_b);
-	else if (size == 5)
-		sort_5(stack_a, stack_b);
 }

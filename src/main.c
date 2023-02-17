@@ -6,27 +6,11 @@
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 17:33:52 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/17 05:07:15 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/17 06:17:45 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	get_min(t_list **stack, int val)
-{
-	t_list	*node;
-	int		min;
-
-	node = *stack;
-	min = node->index;
-	while (node->next)
-	{
-		node = node->next;
-		if ((node->index < min) && node->index != val)
-			min = node->index;
-	}
-	return (min);
-}
 
 static void	gen_stack(t_list **stack, int argc, char **argv)
 {
@@ -53,7 +37,7 @@ static void	gen_stack(t_list **stack, int argc, char **argv)
 		ft_free(args);
 }
 
-static void	do_sort(t_list **stack_a, t_list **stack_b)
+static void	def_sort_type(t_list **stack_a, t_list **stack_b)
 {
 	if (ft_lstsize(*stack_a) <= 5)
 		simple_sort(stack_a, stack_b);
@@ -80,7 +64,7 @@ int	main(int argc, char **argv)
 		free_stack(stack_b);
 		return (0);
 	}
-	do_sort(stack_a, stack_b);
+	def_sort_type(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);
