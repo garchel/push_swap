@@ -6,7 +6,7 @@
 /*   By: pauvicto <pauvicto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 16:47:47 by pauvicto          #+#    #+#             */
-/*   Updated: 2023/02/17 04:20:15 by pauvicto         ###   ########.fr       */
+/*   Updated: 2023/02/17 18:26:26 by pauvicto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	do_swap(t_list **stack)
 	current_node = *stack;
 	next = current_node->next;
 	if (!current_node && !next)
-		ft_error("Error during do_swap");
+		ft_error("Error");
 	holder_val = current_node->value;
 	holder_index = current_node->index;
 	current_node->value = next->value;
